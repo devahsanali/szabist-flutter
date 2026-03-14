@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => HomeScreen(),
         '/column': (context) => Columns(),
         '/row': (context) => Rows(),
+        '/simple_form': (context) => SimpleForm(),
+        '/complete_form': (context) => CompleteForm(),
       },
     );
   }
