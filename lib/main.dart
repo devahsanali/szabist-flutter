@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'screens/columns.dart';
 import 'screens/rows.dart';
+import 'screens/simple_form.dart';
+import 'screens/complete_form.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,6 +41,16 @@ class HomeScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '/column'),
               child: Text('Columns Exercises'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, '/simple_form'),
+              child: Text('Simple Form Example'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, '/complete_form'),
+              child: Text('Complete Form Example'),
             ),
           ],
         ),
