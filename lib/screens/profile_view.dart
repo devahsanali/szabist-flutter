@@ -18,6 +18,18 @@ class ProfileView extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Image.network("https://placehold.co/150x50.png"),
+
+          Image.network(
+            "https://placehold.co/150x50.png",
+            width: 150,
+            height: 50,
+            errorBuilder: (context, error, stackTrace) {
+              return Icon(Icons.error, size: 50);
+            },
+          ),
+
+          SizedBox(height: 20),
           Text("Name: $name"),
           Text("Date: $date"),
 
