@@ -67,7 +67,12 @@ class _MainScaffoldState extends State<MainScaffold> {
             //backgroundColor: Colors.yellow,
           ),
           BottomNavigationBarItem(icon: Icon(Icons.view_week), label: 'Rows'),
-          BottomNavigationBarItem(icon: Icon(Icons.view_column), label: 'Columns')
+          BottomNavigationBarItem(icon: Icon(Icons.view_column), label: 'Columns'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+            //backgroundColor: Colors.purple,
+          ),
         ],
       ),
     );
