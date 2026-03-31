@@ -31,7 +31,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainScaffold(
       body: Center(
-        child: Text('Welcome')
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/profile_form');
+          },
+          child: Text(
+            "Welcome to Home Screen\n(Tap to go to Profile Form)",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.blue,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+        ),
       ),
     );
   }
