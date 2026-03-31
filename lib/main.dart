@@ -33,10 +33,10 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/profile_form');
+            Navigator.pushNamed(context, '/complete_form');
           },
           child: Text(
-            "Welcome to Home Screen\n(Tap to go to Profile Form)",
+            "Welcome to Home Screen\n(Tap to go to Complete Form Screen)",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20,
