@@ -1,3 +1,4 @@
+import 'package:f2/main_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'screens/columns.dart';
 import 'screens/rows.dart';
@@ -28,34 +29,9 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Flutter Examples Home')),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/row'),
-              child: Text('Rows Exercises'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/column'),
-              child: Text('Columns Exercises'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/simple_form'),
-              child: Text('Simple Form Example'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/complete_form'),
-              child: Text('Complete Form Example'),
-            ),
-          ],
-        ),
+    return MainScaffold(
+      body: Center(
+        child: Text('Welcome')
       ),
     );
   }
