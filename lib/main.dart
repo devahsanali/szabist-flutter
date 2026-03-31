@@ -5,6 +5,7 @@ import 'screens/rows.dart';
 import 'screens/simple_form.dart';
 import 'screens/complete_form.dart';
 import 'screens/profile_form.dart';
+import 'screens/profile_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +23,9 @@ class MyApp extends StatelessWidget {
         '/row': (context) => Rows(),
         '/simple_form': (context) => SimpleForm(),
         '/complete_form': (context) => CompleteForm(),
-        '/profile_form': (context) => ProfileForm()
+        '/profile_form': (context) => ProfileForm(),
+        //'/profile_view': (context) => ProfileView(name: '', date: ''),
+        '/profile_view': (context) => ProfileView(),
       },
     );
   }
