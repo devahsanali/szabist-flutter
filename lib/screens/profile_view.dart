@@ -29,6 +29,12 @@ class ProfileView extends StatelessWidget {
             },
           ),
 
+          Image.asset(
+            'assets/images/profile.png',
+            width: 100,
+            height: 100,
+          ),
+
           SizedBox(height: 20),
           Text("Name: $name"),
           Text("Date: $date"),
