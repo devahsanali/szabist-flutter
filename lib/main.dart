@@ -6,6 +6,7 @@ import 'screens/simple_form.dart';
 import 'screens/complete_form.dart';
 import 'screens/profile_form.dart';
 import 'screens/profile_view.dart';
+import 'colors/color_chooser.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/profile_form': (context) => ProfileForm(),
         //'/profile_view': (context) => ProfileView(name: '', date: ''),
         '/profile_view': (context) => ProfileView(),
+        '/color_demo': (context) => ColorChooser(),
       },
     );
   }

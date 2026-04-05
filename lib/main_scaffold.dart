@@ -52,6 +52,7 @@ class _MainScaffoldState extends State<MainScaffold> {
             ListTile(title: Text("Rows"), onTap: () => Navigator.pushNamed(context, '/row')),
             ListTile(title: Text("Columns"), onTap: () => Navigator.pushNamed(context, '/column')),
             ListTile(title: Text("Profile Form"), onTap: () => Navigator.pushNamed(context, '/profile_form')),
+            ListTile(title: Text("Color Demo"), onTap: () => Navigator.pushNamed(context, '/color_demo')),
           ],
         ),
       ),
