@@ -1,5 +1,6 @@
 import 'package:f2/main_scaffold.dart';
 import 'package:flutter/material.dart';
+import 'colors/ColorStateContainer.dart';
 import 'screens/columns.dart';
 import 'screens/rows.dart';
 import 'screens/simple_form.dart';
@@ -7,9 +8,10 @@ import 'screens/complete_form.dart';
 import 'screens/profile_form.dart';
 import 'screens/profile_view.dart';
 import 'colors/color_chooser.dart';
+import 'colors/color_chooser_inherited.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ColorStateContainer());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
         //'/profile_view': (context) => ProfileView(name: '', date: ''),
         '/profile_view': (context) => ProfileView(),
         '/color_demo': (context) => ColorChooser(),
+        '/color_demo_inherited': (context) => ColorChooserInherited(),
       },
     );
   }
