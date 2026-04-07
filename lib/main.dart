@@ -1,4 +1,5 @@
 import 'package:f2/main_scaffold.dart';
+import 'package:f2/screens/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'colors/ColorStateContainer.dart';
 import 'screens/columns.dart';
@@ -9,9 +10,16 @@ import 'screens/profile_form.dart';
 import 'screens/profile_view.dart';
 import 'colors/color_chooser.dart';
 import 'colors/color_chooser_inherited.dart';
+import 'package:provider/provider.dart';
+import 'provider/cart_model.dart';
 
 void main() {
-  runApp(ColorStateContainer());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CartModel(),
+      child: ColorStateContainer(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -31,6 +39,7 @@ class MyApp extends StatelessWidget {
         '/profile_view': (context) => ProfileView(),
         '/color_demo': (context) => ColorChooser(),
         '/color_demo_inherited': (context) => ColorChooserInherited(),
+        '/cart': (context) => CartScreen(),
       },
     );
   }
