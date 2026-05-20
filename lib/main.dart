@@ -12,6 +12,7 @@ import 'colors/color_chooser.dart';
 import 'colors/color_chooser_inherited.dart';
 import 'package:provider/provider.dart';
 import 'provider/cart_model.dart';
+import 'screens/products_screen.dart';
 
 void main() {
   runApp(
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/color_demo': (context) => ColorChooser(),
         '/color_demo_inherited': (context) => ColorChooserInherited(),
         '/cart': (context) => CartScreen(),
+        '/products': (context) => ProductsScreen(),
       },
     );
   }

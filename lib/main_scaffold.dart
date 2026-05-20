@@ -96,6 +96,7 @@ class _MainScaffoldState extends State<MainScaffold> {
             ListTile(title: Text("Color Demo"), onTap: () => Navigator.pushNamed(context, '/color_demo')),
             ListTile(title: Text("Color InheritedWidget"), onTap: () => Navigator.pushNamed(context, '/color_demo_inherited')),
             ListTile(title: Text("Cart (Provider Demo)"), onTap: () => Navigator.pushNamed(context, '/cart')),
+            ListTile(title: Text("Products"), onTap: () => Navigator.pushNamed(context, '/products')),
           ],
         ),
       ),
