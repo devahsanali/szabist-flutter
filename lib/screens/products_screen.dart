@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/product.dart';
+import '../provider/auth_provider.dart';
+import '../services/api_client.dart';
 import '../services/product_service.dart';
 import 'product_form_screen.dart';
 import 'product_detail_screen.dart';
@@ -11,13 +14,16 @@ class ProductsScreen extends StatefulWidget {
 }
 
 class _ProductsScreenState extends State<ProductsScreen> {
-  final ProductService service = ProductService();
+  late ProductService service;
 
   late Future<List<Product>> futureProducts;
 
   @override
   void initState() {
     super.initState();
+    final auth = Provider.of<AuthProvider>(context, listen: false);
+    final apiClient = ApiClient(auth);
+    service = ProductService(apiClient);
     loadProducts();
   }
 

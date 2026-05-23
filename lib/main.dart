@@ -13,11 +13,20 @@ import 'colors/color_chooser_inherited.dart';
 import 'package:provider/provider.dart';
 import 'provider/cart_model.dart';
 import 'screens/products_screen.dart';
+import 'screens/login_screen.dart';
+import 'screens/register_screen.dart';
+import 'provider/auth_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final authProvider = AuthProvider();
+  await authProvider.loadToken();
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => CartModel(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CartModel()),
+        ChangeNotifierProvider.value(value: authProvider),
+      ],
       child: ColorStateContainer(),
     ),
   );
@@ -26,9 +35,10 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<AuthProvider>(context, listen: false);
     return MaterialApp(
       title: 'Flutter Navigation Examples',
-      initialRoute: '/',
+      initialRoute: auth.isLoggedIn ? '/' : '/login',
       routes: {
         '/': (context) => HomeScreen(),
         '/column': (context) => Columns(),
@@ -41,6 +51,8 @@ class MyApp extends StatelessWidget {
         '/color_demo': (context) => ColorChooser(),
         '/color_demo_inherited': (context) => ColorChooserInherited(),
         '/cart': (context) => CartScreen(),
+        '/login': (context) => LoginScreen(),
+        '/register': (context) => RegisterScreen(),
         '/products': (context) => ProductsScreen(),
       },
     );

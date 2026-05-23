@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/product.dart';
+import '../provider/auth_provider.dart';
+import '../services/api_client.dart';
 import '../services/product_service.dart';
 
 class ProductFormScreen extends StatefulWidget {
@@ -15,8 +18,7 @@ class ProductFormScreen extends StatefulWidget {
 class _ProductFormScreenState extends State<ProductFormScreen> {
   final _formKey = GlobalKey<FormState>();
 
-  final ProductService service = ProductService();
-
+  late ProductService service;
   late TextEditingController nameController;
   late TextEditingController descriptionController;
   late TextEditingController priceController;
@@ -26,6 +28,9 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
   @override
   void initState() {
     super.initState();
+    final auth = Provider.of<AuthProvider>(context, listen: false);
+    final apiClient = ApiClient(auth);
+    service = ProductService(apiClient);
 
     isEdit = widget.product != null;
 
