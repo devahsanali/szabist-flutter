@@ -28,12 +28,27 @@ class ProductDetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.network(
-                    'https://picsum.photos/800',
-                    width: double.infinity,
-                    height: 260,
-                    fit: BoxFit.cover,
-                  ),
+                  product.image != null
+                      ? Image.network(
+                          product.image!,
+                          width: double.infinity,
+                          height: 260,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              width: double.infinity,
+                              height: 260,
+                              color: Colors.grey[300],
+                              child: Icon(Icons.image_not_supported, size: 48),
+                            );
+                          },
+                        )
+                      : Container(
+                          width: double.infinity,
+                          height: 260,
+                          color: Colors.grey[300],
+                          child: Icon(Icons.shopping_bag, size: 48),
+                        ),
 
                   Padding(
                     padding: EdgeInsets.all(16),

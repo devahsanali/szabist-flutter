@@ -111,14 +111,28 @@ class _ProductsScreenState extends State<ProductsScreen> {
                           elevation: 3,
                           child: ListTile(
                             leading: ClipRRect(
-                              borderRadius:
-                              BorderRadius.circular(8),
-                              child: Image.network(
-                                'https://picsum.photos/200',
-                                width: 60,
-                                height: 60,
-                                fit: BoxFit.cover,
-                              ),
+                              borderRadius: BorderRadius.circular(8),
+                              child: product.image != null
+                                  ? Image.network(
+                                      product.image!,
+                                      width: 60,
+                                      height: 60,
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (context, error, stackTrace) {
+                                        return Container(
+                                          width: 60,
+                                          height: 60,
+                                          color: Colors.grey[300],
+                                          child: Icon(Icons.image_not_supported),
+                                        );
+                                      },
+                                    )
+                                  : Container(
+                                      width: 60,
+                                      height: 60,
+                                      color: Colors.grey[300],
+                                      child: Icon(Icons.shopping_bag),
+                                    ),
                             ),
 
                             title: Text(product.name),

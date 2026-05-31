@@ -20,11 +20,21 @@ class ProductService {
   }
 
   // ADD PRODUCT
-  Future<void> addProduct(Product product) async {
-    final response = await api.post(
-      "/products",
-      product.toJson(),
-    );
+  Future<void> addProduct(Product product, {String? imagePath}) async {
+    final response = (imagePath != null && imagePath.isNotEmpty)
+        ? await api.postMultipart(
+            "/products",
+            {
+              'name': product.name,
+              'description': product.description,
+              'price': product.price.toString(),
+            },
+            {'image': imagePath},
+          )
+        : await api.post(
+            "/products",
+            product.toJson(),
+          );
 
     if (response.statusCode != 200 &&
         response.statusCode != 201) {
@@ -33,11 +43,21 @@ class ProductService {
   }
 
   // UPDATE PRODUCT
-  Future<void> updateProduct(String id, Product product) async {
-    final response = await api.put(
-      "/products/$id",
-      product.toJson(),
-    );
+  Future<void> updateProduct(String id, Product product, {String? imagePath}) async {
+    final response = (imagePath != null && imagePath.isNotEmpty)
+        ? await api.putMultipart(
+            "/products/$id",
+            {
+              'name': product.name,
+              'description': product.description,
+              'price': product.price.toString(),
+            },
+            {'image': imagePath},
+          )
+        : await api.put(
+            "/products/$id",
+            product.toJson(),
+          );
 
     if (response.statusCode != 200) {
       throw Exception("Failed to update product");
